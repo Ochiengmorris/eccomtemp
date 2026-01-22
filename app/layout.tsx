@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const monteSerat = Montserrat({
+  variable: "--font-monteserrat",
   subsets: ["latin"],
 });
 
@@ -24,10 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={` ${monteSerat.variable} antialiased`}>
+        <div>
+          <Header />
+          <main className="bg-slate-900/10 h-dvh px-24 py-8">{children}</main>
+        </div>
       </body>
     </html>
   );
