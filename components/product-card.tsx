@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { Heart, ShoppingBasket } from "lucide-react";
-import { Product } from "@/app/(store-main)/page";
 import Image from "next/image";
+import { Product } from "@/lib/types";
+import Link from "next/link";
 
 const ProductCard = ({
   product,
@@ -14,7 +15,11 @@ const ProductCard = ({
   const [isLiked, setIsLiked] = useState(false);
 
   return (
-    <div key={index} className=" rounded-xl flex flex-col gap-1">
+    <Link
+      href={`/product/${product.slug}`}
+      key={index}
+      className=" rounded-xl flex flex-col gap-2"
+    >
       <div className="h-[73%] bg-slate-200/50 rounded-xl relative overflow-hidden">
         <button
           onClick={() => setIsLiked(!isLiked)}
@@ -37,18 +42,33 @@ const ProductCard = ({
 
         <div className="flex flex-col gap-2 mt-2 px-2 ">
           <p className="text-center font-semibold truncate">{product.title}</p>
-          <div className="flex gap-2 items-center border-2 border-orange-500 px-2 py-1  rounded-full self-center w-fit">
-            <ShoppingBasket className="text-orange-500" size={20} />
-            <p className="text-center text-orange-500 text-sm font-semibold">
-              {product.price.toLocaleString("en-US", {
-                style: "currency",
-                currency: "KES",
-              })}
-            </p>
+          <div className="flex gap-2 items-center justify-center">
+            {product.discountPrice && (
+              <p className="line-through text-sm font-semibold text-muted-foreground">
+                {product.price.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "KES",
+                })}
+              </p>
+            )}
+            <div className="flex gap-2 items-center border-2 border-orange-500 px-2 py-1  rounded-full w-fit">
+              <ShoppingBasket className="text-orange-500" size={20} />
+              <p className="text-center text-orange-500 text-sm font-semibold">
+                {product.discountPrice
+                  ? product.discountPrice.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "KES",
+                    })
+                  : product.price.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "KES",
+                    })}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

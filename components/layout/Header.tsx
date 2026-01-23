@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className="w-full h-16 flex items-center justify-between  px-24">
+    <div className="w-full h-16 flex items-center justify-between px-24 fixed top-0 z-50 bg-background">
       <div className="flex gap-12 items-center">
-        <Image src={images.logo} alt="logo" className="w-24 h-auto" />
+        <Image src={images.logo} alt="logo" className="w-22 h-auto" />
         <SearchBar />
       </div>
 
