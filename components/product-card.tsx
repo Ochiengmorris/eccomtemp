@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Heart, ShoppingBasket } from "lucide-react";
 import Image from "next/image";
 import { Product } from "@/lib/types";
@@ -14,26 +14,33 @@ const ProductCard = ({
 }) => {
   const [isLiked, setIsLiked] = useState(false);
 
+  const hasValidImage = product.images[0] && product.images[0].trim() !== "";
+
   return (
     <Link
       href={`/product/${product.slug}`}
       key={index}
-      className=" rounded-xl flex flex-col gap-2"
+      className="rounded-xl flex flex-col gap-2 "
     >
-      <div className="h-[73%] bg-slate-200/50 rounded-xl relative overflow-hidden">
+      <div className="h-[300px]  bg-slate-200/50 rounded-xl relative overflow-hidden">
         <button
-          onClick={() => setIsLiked(!isLiked)}
-          className="absolute top-2 right-2 p-2 bg-background rounded-full"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsLiked(!isLiked);
+          }}
+          className="absolute top-2 right-2 p-2 bg-background rounded-full z-30"
         >
           <Heart color="orange" fill={isLiked ? "orange" : "none"} />
         </button>
 
-        <Image
-          src={product.images[0]}
-          alt={product.title}
-          fill
-          className="object-cover"
-        />
+        {hasValidImage && (
+          <Image
+            src={product.images[0]}
+            alt={product.title}
+            fill
+            className="object-cover"
+          />
+        )}
       </div>
       <div className="bg-background grow rounded-xl p-2 relative">
         <div className="absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-blue-400 h-fit hidden w-fit rounded-full px-2 py-1">
