@@ -60,9 +60,12 @@ export const MOCK_PRODUCTS: Product[] = [
     price: 4500,
     discountPrice: 3800,
     stock: 10,
-    images: ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"],
+    images: [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+    ],
     description:
-      "Navigate your daily adventures with this versatile, durable backpack designed for modern professionals and students. Constructed from water-resistant 600D polyester with reinforced stitching at stress points for years of reliable use. Dedicated padded laptop compartment safely accommodates devices up to 17 inches, with additional tablet sleeve for extra protection. Multiple organizational pockets including quick-access front pocket, side mesh water bottle holders, and hidden anti-theft pocket for valuables. Ergonomic padded shoulder straps and breathable back panel distribute weight evenly for comfortable all-day carry. External USB charging port with internal cable routing lets you charge devices on the go. Luggage strap slides over rolling suitcase handles for convenient travel. TSA-friendly design opens flat for easy airport security screening. 30L capacity perfect for daily commutes, weekend trips, or outdoor excursions.",
+      "Navigate your daily adventures with this versatile, durable backpack designed for modern professionals and students. Constructed from water-resistant 600D polyester with reinforced stitching at stress points for years of reliable use. Dedicated padded laptop compartment safely accommodates devices up to 17 inches, with additional tablet sleeve for extra protection. ",
     category: "Bags",
   },
   {

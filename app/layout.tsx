@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={` ${montserrat.variable} antialiased`}>
         <div className="flex flex-col bg-slate-900/10 h-dvh overflow-y-auto">
           <Header />
-          <main className=" min-h-dvh px-24 py-8 mt-16 ">{children}</main>
+          <main className=" min-h-dvh px-24 py-4 mt-16 ">{children}</main>
         </div>
       </body>
     </html>

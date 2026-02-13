@@ -23,14 +23,14 @@ const StoreHome = () => {
         {Categories.map((category, index) => (
           <button
             key={index}
-            className="bg-background px-6 py-2 rounded-full text-sm font-semibold first:bg-orange-500 first:text-white"
+            className="bg-background px-6 py-2 rounded-full text-sm font-semibold first:bg-accent-foreground first:text-white"
           >
             {category}
           </button>
         ))}
       </div>
 
-      <div className="grid grid-cols-4 mt-8 grow max-h-10/12 gap-4">
+      <div className="grid grid-cols-4 mt-4 grow max-h-10/12 gap-4">
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-4 p-6 bg-background rounded-xl">
             <div className="flex justify-between">
